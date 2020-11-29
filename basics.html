@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text-in,.text-out{
+            font-size: 5rem; 
+        }
+        ul{
+            display: inline-block;
+        }
+        .list{
+            list-style: none;
+            float: left;
+            margin-right: 1rem;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-in">
+        Hello I am coming!
+    </div>
+    <ul>
+        <li class="list">Home</li>
+        <li class="list">Shop</li>
+        <li class="list">What?</li>
+        <li class="list">Yes!</li>
+    </ul>
+    <button class="btn">reverse</button>
+    <div class="text-out">
+        Bye I am going!
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+    <script>
+        /*
+        gsap.from('.text-in',{opacity:0,duration:2,color:'red',y:'-100%',ease:'bounce'})
+        gsap.to('.text-out',{opacity:0,duration:1,y:'100%',delay:2,rotation:180})
+        gsap.from('.list',{opacit:0,x:'-100rem',duration:1.4,stagger:.3,scale:20})
+        */
+        var timeline = gsap.timeline({defaults : {duration:1}})
+
+        timeline
+            .from('.text-in',{opacity:0,duration:2,color:'red',y:'-100%',ease:'bounce'})
+            .to('.text-out',{opacity:0,duration:1,y:'100%',rotation:10})
+            .from('.list',{opacity:0,x:'-100rem',duration:1.4,stagger:.3,scale:20})
+            
+        btn = document.querySelector('.btn')
+        btn.addEventListener('click',()=>{
+            timeline.reverse()
+        })
+    </script>
+</body>
+</html>

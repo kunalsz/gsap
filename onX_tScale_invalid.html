@@ -1,0 +1,30 @@
+<!--  onComplete and such invokes and timeScale and invalidate -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box{
+            height: 50px;
+            width: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+    <script>
+        function change(){
+            gsap.set('.box',{backgroundColor:'blue'})
+        }
+
+        gsap.to('.box',{x:100,onComplete:change})
+    </script>
+</body>
+</html>
